@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ZenLua.iml" filepath="$PROJECT_DIR$/ZenLua.iml" />
       <module fileurl="file://$PROJECT_DIR$/build/build.iml" filepath="$PROJECT_DIR$/build/build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zpe.transpiler.lua.iml" filepath="$PROJECT_DIR$/zpe.transpiler.lua.iml" />
     </modules>
   </component>
 </project>

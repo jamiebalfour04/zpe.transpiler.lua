@@ -1,0 +1,240 @@
+--
+_put
+function _put(i, e, v)
+  if type(i) == "table" then
+    if v ~= nil then
+      i[e] = v
+    else
+      table.insert(i, e)
+    end
+  end
+  return i
+end
+
+--
+_append
+function _append(collection, value)
+  if type(collection) ~= "table" then
+    error("append() only supports tables")
+  end
+
+  if type(value) == "table" and #value == 2 then
+    collection[value[1]] = value[2]
+  else
+    table.insert(collection, value)
+  end
+
+  return collection
+end
+
+--
+list_swap_elements
+function list_swap_elements(l, a, b)
+  l[a], l[b] = l[b], l[a]
+  return l
+end
+
+--
+map_get_keys
+function map_get_keys(m)
+  local result = {}
+
+  for k, _ in pairs(m) do
+    table.insert(result, k)
+  end
+
+  return result
+end
+
+--
+throw_error
+function throw_error(msg)
+  print(msg)
+end
+
+--
+list_add_element
+function list_add_element(l, e)
+  table.insert(l, e)
+  return l
+end
+
+--
+list_remove_element
+function list_remove_element(l, e)
+  table.remove(l, e)
+  return l
+end
+
+--
+random_number
+function random_number(max, min)
+  return math.random(min, max)
+end
+
+--
+list_set_at_index
+function list_set_at_index(l, i, v)
+  while #l < i do
+    table.insert(l, nil)
+  end
+
+  l[i] = v
+  return l
+end
+
+--
+typeOf
+function typeOf(e)
+  return type(e)
+end
+
+--
+list_slice
+function list_slice(l, offset, length)
+  local result = {}
+
+  if length == nil or length == -1 then
+    for i = offset, #l do
+      table.insert(result, l[i])
+    end
+  else
+    for i = offset, length do
+      table.insert(result, l[i])
+    end
+  end
+
+  return result
+end
+
+--
+map_contains
+function map_contains(m, e)
+  if type(m) ~= "table" then
+    return false
+  end
+
+  return m[e] ~= nil
+end
+
+--
+string_get_length
+function string_get_length(s)
+  return string.len(tostring(s))
+end
+
+--
+value
+function value(o)
+  local n = tonumber(o)
+
+  if n ~= nil then
+    return n
+  end
+
+  return 0
+end
+
+--
+string_get_substring
+function string_get_substring(s, startPos, endPos)
+  return string.sub(tostring(s), startPos + 1, endPos)
+end
+
+--
+string_to_lowercase
+function string_to_lowercase(s)
+  return string.lower(s)
+end
+
+--
+string_to_uppercase
+function string_to_uppercase(s)
+  return string.upper(s)
+end
+
+--
+string_contains
+function string_contains(s, c)
+  return string.find(s, c, 1, true) ~= nil
+end
+
+--
+square_root
+function square_root(n)
+  return math.sqrt(n)
+end
+
+--
+string_split
+function string_split(s, d)
+  local result = {}
+
+  for match in (s .. d):gmatch("(.-)" .. d) do
+    table.insert(result, match)
+  end
+
+  return result
+end
+
+--
+millitime
+function millitime()
+  return os.clock() * 1000
+end
+
+--
+auto_input
+function auto_input()
+  local v = io.read()
+
+  local n = tonumber(v)
+
+  if n ~= nil then
+    return n
+  end
+
+  return v
+end
+
+--
+string_compare
+function string_compare(a, b)
+  return a == b
+end
+
+--
+map_create_ordered
+function map_create_ordered(...)
+  local result = {}
+
+  for _, pair in ipairs({...}) do
+    result[pair[1]] = pair[2]
+  end
+
+  return result
+end
+
+--
+expand_if_list
+function expand_if_list(array, i, j)
+  while #array <= i do
+    table.insert(array, {})
+  end
+
+  while #array[i] <= j do
+    table.insert(array[i], 0)
+  end
+end
+
+--
+max_integer
+function max_integer()
+  return 2147483647
+end
+
+--
+list_get_length
+function list_get_length(l)
+  return #l
+end
